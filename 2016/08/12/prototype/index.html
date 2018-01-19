@@ -104,7 +104,7 @@
 <meta property="og:description" content="12以前一直对原型(prototype)，原型链，__ proto __ ，以及prototype和 __ proto __之间的关系感到凌乱，所以最近花了点时间整理一下。如果哪里写的有问题，欢迎大神斧正。  首先要明确：  在js中，函数是一等公民，函数有很多特性，函数是对象。在js中，是普通的引用类型，函数的特点是一个代码执行的模板。在进行深拷贝的时候，不需要考虑函数，因为函数只是一个模板，无">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2016/08/12/images/ConstructorPrototype.jpg">
-<meta property="og:updated_time" content="2017-08-11T03:51:30.089Z">
+<meta property="og:updated_time" content="2018-01-19T02:48:04.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型的一些整理">
 <meta name="twitter:description" content="12以前一直对原型(prototype)，原型链，__ proto __ ，以及prototype和 __ proto __之间的关系感到凌乱，所以最近花了点时间整理一下。如果哪里写的有问题，欢迎大神斧正。  首先要明确：  在js中，函数是一等公民，函数有很多特性，函数是对象。在js中，是普通的引用类型，函数的特点是一个代码执行的模板。在进行深拷贝的时候，不需要考虑函数，因为函数只是一个模板，无">
@@ -362,7 +362,7 @@
 <pre><code>首先要明确：
 </code></pre></blockquote>
 <pre><code>在js中，函数是一等公民，函数有很多特性，函数是对象。在js中，是普通的引用类型，函数的特点是一个代码执行的模板。在进行深拷贝的时候，不需要考虑函数，因为函数只是一个模板，无论拷贝多少份和获得引用，得到的效果是一样的。
-Js是解释执行的语言，其特点：只要代码执行了，就会进行解析，而且解析了就会创建。如：{}！={} 或（function（）{}）！=（function（）{}）。
+Js是解释执行的语言，其特点：只要代码执行了，就会进行解析，而且解析了就会创建。如：{}!={} 或（function（）{}）!=（function（）{}）。
 </code></pre><blockquote>
 <p>1、什么是原型 prototype</p>
 </blockquote>
@@ -413,6 +413,10 @@ Js是解释执行的语言，其特点：只要代码执行了，就会进行解
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/22/git-md/" rel="next" title="git.md">
+                <i class="fa fa-chevron-left"></i> git.md
+              </a>
             
           </div>
 
@@ -490,7 +494,7 @@ Js是解释执行的语言，其特点：只要代码执行了，就会进行解
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -543,7 +547,7 @@ Js是解释执行的语言，其特点：只要代码执行了，就会进行解
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
