@@ -490,36 +490,28 @@
           
             <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">以前一直对原型(prototype)，原型链，__ proto __ ，以及prototype和 __ proto __之间的关系感到凌乱，</div><div class="line">所以最近花了点时间整理一下。如果哪里写的有问题，欢迎大神斧正。</div></pre></td></tr></table></figure>
 <blockquote>
-<pre><code>首先要明确：
-</code></pre></blockquote>
-<pre><code>在js中，函数是一等公民，函数有很多特性，函数是对象。在js中，是普通的引用类型，函数的特点是一个代码执行的模板。在进行深拷贝的时候，不需要考虑函数，因为函数只是一个模板，无论拷贝多少份和获得引用，得到的效果是一样的。
-Js是解释执行的语言，其特点：只要代码执行了，就会进行解析，而且解析了就会创建。如：{}!={} 或（function（）{}）!=（function（）{}）。
-</code></pre><blockquote>
+<p>首先要明确：</p>
+</blockquote>
+<p>在js中，函数是一等公民，函数有很多特性，函数是对象。在js中，是普的引用类型，函数的特点是一个代码执行的模板。在进行深拷贝的时候，需要考虑函数，因为函数只是一个模板，无论拷贝多少份和获得引用，得的效果是一样的。<br>Js是解释执行的语言，其特点：只要代码执行了，就会进行解析，而且解了就会创建。如：{}!={} 或（function（）{}）!=（function（）{}。</p>
+<blockquote>
 <p>1、什么是原型 prototype</p>
 </blockquote>
-<pre><code>可以简单理解为原型是函数背后的对象，其存在的意义是函数进行深拷贝时可以不拷贝这个对象，从而提高性能。这个对象，我们把它称为原型prototype。
-在js中解析到就会创建，因此在创建函数时，把方法写在构造函数中，这样做的好处是：无论创建多少个对象，都只有一个方法的副本。
-在js中每一个函数背后都有一个对象存在，这个对象使用  函数名.prototype来访问，而且函数不同，其对象也不同，默认情况下这个对象含有一个constructor属性，用于指回该函数。也就是说，在默认情况下如果一个对象含有constructor属性，同时这个属性指向某个函数，那么这个对象就是这个函数背后的prototype。
-</code></pre><blockquote>
+<p>可以简单理解为原型是函数背后的对象，其存在的意义是函数进行深拷贝时可以不拷贝这个对象，从而提高性能。这个对象，我们把它称为原型prototype。<br>在js中解析到就会创建，因此在创建函数时，把方法写在构造函数中，这样做的好处是：无论创建多少个对象，都只有一个方法的副本。<br>在js中每一个函数背后都有一个对象存在，这个对象使用  函数.prototype来访问，而且函数不同，其对象也不同，默认情况下这个对象有一个constructor属性，用于指回该函数。也就是说，在默认情况下如一个对象含有constructor属性，同时这个属性指向某个函数，那么这个象就是这个函数背后的prototype。</p>
+<blockquote>
 <p>2、什么是  <strong> proto</strong> </p>
-</blockquote>
-<pre><code>__proto__属性，是用来 ：利用实例对象观察其原型的结构。
-如果不使用__proto__，那么想要观察对象的继承关系就只能通过实例.constructor.prototype来获得实例对象的  原型对象这种方法书写起来麻烦。
-因此，最早在火狐中给实例对象引入了__proto__属性，用来快速访问该实例的 原型对象。
-注意：该属性是内部属性，作为调试工具，不建议在代码中使用。
-</code></pre><blockquote>
+<p>这个属性，是用来 ：利用实例对象观察其原型的结构。<br>如果不使用<strong>proto</strong>，那么想要观察对象的继承关系就只能通过实.constructor.prototype来获得实例对象的  原型对象这种方法书写起麻烦。<br>因此，最早在火狐中给实例对象引入了<strong>proto</strong>属性，用来快速访问该例的 原型对象。<br>注意：该属性是内部属性，作为调试工具，不建议在代码中使用。</p>
 <p>3、prototype 和 <strong> proto</strong> 有什么关系？</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">prototype  是构造函数访问原型属性的方法，</div><div class="line"> 例如：</div><div class="line"> <span class="built_in">Object</span>.prototype   </div><div class="line"> __proto__  是实例对象访问原型对象的方法。</div><div class="line"> Var obj = &#123;&#125;;</div><div class="line"> obj.__proto__  等价于  obj.constructor.prototype</div><div class="line"> 它们是两个不同的“对象”访问同一个原型的两种不同的方法。</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">prototype  是构造函数访问原型属性的方法，</div><div class="line"> 例如：</div><div class="line"> <span class="built_in">Object</span>.prototype   </div><div class="line"> __proto__  是实例对象访问原型对象的方法。</div><div class="line"> Var obj = &#123;&#125;;</div><div class="line"> obj.__proto__  等价于  obj.constructor.prototype</div><div class="line"> 它们是两个不同的“对象”访问同一个原型的两种不同的方法。</div></pre></td></tr></table></figure>
 <blockquote>
 <p>4、关于原型对象和原型属性</p>
 </blockquote>
-<p>原型在构造函数的角度来看，是利用prototype属性获得到的，所以称其为 构造函数的 原型属性，简称为原型。<br>如果从实例的角度来看，原型是实例对象的 原型对象，也简称为原型。<br>因此原型对象和原型属性可以简单理解成：构造函数和实例访问的是用一个原型，对象不同，所以起了个不同的名字。<br>凡是构造函数就有原型属性，凡是实例对象就有原型对象。</p>
+<p>原型在构造函数的角度来看，是利用prototype属性获得到的，所以称其为 构函数的 原型属性，简称为原型。如果从实例的角度来看，原型是实例对象的 原型对象，也简称为原型。因此原型对象和原型属性可以简单理解成：构造函数和实例访问的是用一个型，对象不同，所以起了个不同的名字。凡是构造函数就有原型属性，凡是实例对象就有原型对象。</p>
 <p>原型对象的成员可以直接被实例对象访问。称其为原型式继承。</p>
 <blockquote>
 <p> 5、原型链</p>
 </blockquote>
-<p>原型也是对象，所以原型也有原型，原型的原型也有原型，直到…null。<br>下面是在大神那里看到的一副关于构造函数、原型和实例之间关系的三角图↓↓↓</p>
+<p>原型也是对象，所以原型也有原型，原型的原型也有原型，直到…null。下面是在大神那里看到的一副关于构造函数、原型和实例之间关系的三角图↓↓↓</p>
 <p> <img src="images/ConstructorPrototype.jpg" alt="构造函数原型实例三角图"></p>
 
           
